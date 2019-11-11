@@ -16,13 +16,16 @@
 ## Index
 
 - `/components` for presentational unit components
-  - `index.js`
-  - `component.css`
-  - `component.test.js`
+  - `/base` for large components
+  - `/common` for minimal component unit
+    - `index.js`
+    - `component.css`
+    - `component.test.js`
 - `/containers` for container components
 - `/pages` for page per each routings
+  - All routings indexed in `App.js`
 - `/utils` for utility functions
-- `/redux` for redux store and reducers settings
+- `/redux` for redux store and reducers settings in Ducks pattern
 
 ## How to build
 
@@ -35,6 +38,10 @@
 2. Visit `http://localhost:3000` (Automatically opens)
 
 ## Update Report
+
+### v1.1 (2019-11-11)
+- added `redux` basic sample codes
+- changed directory structures
 
 ### v1.0 (2019-11-9)
 Initial boilerplate checkout
