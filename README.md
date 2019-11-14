@@ -4,13 +4,13 @@
 
 - Redux
   - `redux-thunk`
-  - `redux-saga`
 - React Router
 - Code Splitting
   - Create a Component, `import` it in `/pages/index.js` using `withSplitting()`
 - Environment Variables
   - Set it in `webpack.config.js`
 - Webpack Dev Server
+- Storybook for React
 - Other optimizations when building
 
 ## Index
@@ -37,7 +37,17 @@
 1. Run `npm run dev`
 2. Visit `http://localhost:3000` (Automatically opens)
 
+## How to run **Storybook**
+
+1. Run `npm run storybook`
+2. Visit Storybook UI (Automatically opens)
+
 ## Update Report
+
+### v1.2 (2019-11-14)
+- added comments with core logic explanations
+- added `redux-thunk`, loaders for style
+- added **Storybook** features
 
 ### v1.1 (2019-11-11)
 - added `redux` basic sample codes

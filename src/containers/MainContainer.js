@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Main from '../components/base/Main'
+import Main from '../components/Main'
 
-import * as actions from '../redux/modules/app'
+import * as appActions from '../redux/modules/app'
 
 const MainContainer = (props) => {
   return (
@@ -21,7 +21,7 @@ const mapStateToProps = ({ app }) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch)
+  appActions: bindActionCreators(appActions, dispatch)
 })
 
 export default connect(
