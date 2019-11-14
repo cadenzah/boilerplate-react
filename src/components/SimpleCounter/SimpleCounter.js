@@ -1,11 +1,11 @@
 import React from 'react'
-import './Main.css'
+import './SimpleCounter.css'
 
-const Main = (props) => {
+const SimpleCounter = (props) => {
   return (
-    <div className="main">
+    <div className="simple-counter">
       <p>{props.value}</p>
-      <div className="main-button-wrapper">
+      <div className="simple-counter-button-wrapper">
         <button onClick={props.decrement}>-</button>
         <button onClick={props.increment}>+</button>
       </div>
@@ -13,4 +13,4 @@ const Main = (props) => {
   )
 }
 
-export default Main
+export default SimpleCounter

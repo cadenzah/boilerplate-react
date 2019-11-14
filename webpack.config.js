@@ -8,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
   entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
   output: {
+    publicPath: '/',
     filename: '[name].[chunkhash].js',
     path: path.resolve(`${__dirname}/build`)
   },
@@ -41,7 +42,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'build'),
     compress: true,
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   },
   plugins: [
     new CleanWebpackPlugin(),
