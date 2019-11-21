@@ -44,6 +44,9 @@
 
 ## Update Report
 
+### v1.4 (2019-11-21)
+- added tips for using react-router's `withRouter()` HoC.
+
 ### v1.3 (2019-11-15)
 - added `/templates` directory: general purpose template components
   - example: `<Article />` component
@@ -66,7 +69,9 @@ Initial boilerplate checkout
 
 ## Appendix
 
-### Tip for using React Router with Webpack Dev Server
+### Tips for using React Router
+
+#### Webpack Dev Server
 
 As Webpack Dev Server(WDS) does not serve `index.html` for routes except `/` as default config, we should set relevant configuration.
 
@@ -85,3 +90,19 @@ module.exports = {
 ```
 
 You should set `publicPath` property to `/`, so that the WDS can understand real root (/) even when you are on subroutes. [See this article](https://stackoverflow.com/a/50179280/9341051).
+
+#### Storybook
+
+If your component use `withRouter()` HoC and use relevant props within itself(i.e. `history.push()`), that component has to be wrapped with `<Router />`. You can use `<MemoryRouter />` to mock the routing environment.
+
+```js
+// Component.stories.js
+import { MemoryRouter } from 'react-router'
+
+storiesOf('MainButton', module)
+  .addDecorator(story => <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>)
+  .add('default', () => (
+      <ComponentWithRouter />
+    )
+  )
+```
