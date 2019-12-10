@@ -2,6 +2,7 @@
 
 ## Features
 
+- Image Loading
 - Redux
   - `redux-thunk`
 - React Router
@@ -15,6 +16,11 @@
 
 ## Index
 
+### `public`
+- `index.html` for initial entry point to users
+- `/assets` for all static resources used in this web page
+
+### `src`
 - `/components` for presentational unit components
   - `/base` for large components
   - `/common` for minimal component unit
@@ -44,6 +50,12 @@
 
 ## Update Report
 
+### v1.6 (2019-12-11)
+- added build option for production build
+
+### v1.5 (2019-11-22)
+- added `url-loader` and support for image loading from server's directory
+
 ### v1.4 (2019-11-21)
 - added tips for using react-router's `withRouter()` HoC.
 
@@ -68,6 +80,16 @@
 Initial boilerplate checkout
 
 ## Appendix
+
+### If you want to use images in pages
+
+You can simply load static images which are uploaded in web server's directory by using specific URI indicating the resources.
+
+```js
+<img src="assets/images/BlueMountains.jpg" />
+```
+
+Files have to be located in `public/assets` directory, and the URI should include prefix of `assets/`. Subdirectories are able to customized. See `webpack.config.js` for more detailed configurations.
 
 ### Tips for using React Router
 

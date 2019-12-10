@@ -5,14 +5,14 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-module.exports = {
+module.exports = env => ({
   entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
   output: {
     publicPath: '/',
-    filename: '[name].[chunkhash].js',
+    filename: 'js/[name].[chunkhash].js',
     path: path.resolve(`${__dirname}/build`)
   },
-  mode: "none",
+  mode: env.mode || "none",
   optimization: {
     runtimeChunk: 'single',
 
@@ -56,21 +56,21 @@ module.exports = {
     }),
     new ManifestPlugin({
       fileName: 'manifest.json'
-    })
-    // new CopyWebpackPlugin([
+    }),
+    new CopyWebpackPlugin([
     //   {
     //     from: 'public/icons',
     //     to: './',
     //     toType: 'dir'
     //   },
-    //   {
-    //     from: 'public/assets',
-    //     to: './assets',
-    //     toType: 'dir'
-    //   }
-    // ]),
+      {
+        from: 'public/assets',
+        to: './assets',
+        toType: 'dir'
+      }
+    ])
     // new webpack.DefinePlugin({
     //   KEY: JSON.stringify('<VALUE>'),
     // })
   ]
-}
+})
