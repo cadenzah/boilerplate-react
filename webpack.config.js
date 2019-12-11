@@ -12,7 +12,7 @@ module.exports = env => ({
     filename: 'js/[name].[chunkhash].js',
     path: path.resolve(`${__dirname}/build`)
   },
-  mode: env.mode || "none",
+  mode: env ? env.mode : "none",
   optimization: {
     runtimeChunk: 'single',
 
