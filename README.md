@@ -6,6 +6,7 @@
 - Redux
   - `redux-thunk`
 - React Router
+- Sass supported
 - Code Splitting
   - Create a Component, `import` it in `/pages/index.js` using `withSplitting()`
 - Environment Variables
@@ -49,6 +50,11 @@
 2. Visit Storybook UI (Automatically opens)
 
 ## Update Report
+
+### v1.7 (2019-12-27)
+- added Sass support
+  - added `webpack.config.js` for Storybook config 
+- changed `.css` to `.scss`
 
 ### v1.6 (2019-12-11)
 - added build option for production build

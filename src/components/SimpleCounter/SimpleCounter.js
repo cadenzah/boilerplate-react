@@ -1,5 +1,5 @@
 import React from 'react'
-import './SimpleCounter.css'
+import './SimpleCounter.scss'
 
 const SimpleCounter = (props) => {
   return (
