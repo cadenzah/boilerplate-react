@@ -13,7 +13,8 @@
   - Set it in `webpack.config.js`
 - Webpack Dev Server
 - Storybook for React
-- Other optimizations when building
+- Github Page Deployment *(Only for a single routing page currently)*
+- Other optimizations for build
 
 ## Index
 
@@ -64,7 +65,24 @@ The project will inject `{ __NOT_USED__: undefined }` environment variable objec
 1. Run `npm run storybook`
 2. Visit Storybook UI (Automatically opens)
 
+## How to deploy via Github Page
+
+1. Add `REPO_NAME` value in `.env`
+
+```
+# .env
+REPO_NAME=<YOUR_GITHUB_REPOSITORY_NAME>
+```
+
+2. Run `npm run gh-pages`
+3. Include the output `/docs` in the `master` branch of your project
+4. `git push origin master`
+
 ## Update Report
+
+### v1.9 (2020-01-02)
+- added Github Page deployment script and settings
+  - Currently for only a single routing page
 
 ### v1.8 (2020-01-01)
 - added custom Environment Variables settings
