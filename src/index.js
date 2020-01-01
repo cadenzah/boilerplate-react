@@ -8,6 +8,8 @@ import './index.scss'
 import store from './redux'
 import App from './pages/App'
 
+console.log(`process.env.MODE: ${process.env.MODE}`)
+
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>

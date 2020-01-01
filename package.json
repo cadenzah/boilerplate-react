@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open",
-    "build": "npx webpack --env.mode=production",
+    "dev": "webpack-dev-server --config ./config/webpack.config.js --open",
+    "build": "npx webpack --config ./config/webpack.config.js --env.MODE=production",
     "storybook": "start-storybook"
   },
   "author": "cadenzah",
@@ -24,7 +24,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.5",
     "core-js": "^3.2.1",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^4.0.0-beta.11",
     "node-sass": "^4.13.0",
     "regenerator-runtime": "^0.13.3",
     "sass-loader": "^8.0.0",

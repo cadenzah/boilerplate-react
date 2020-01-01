@@ -33,6 +33,21 @@
   - All routings indexed in `App.js`
 - `/utils` for utility functions
 - `/redux` for redux store and reducers settings in Ducks pattern
+- `/config` for environment variables setting and Webpack config files
+  - put your `.env` file in `/config/env` directory
+
+## Prerequisite
+
+1. Run `npm install` to provide required npm modules
+2. Go to `/config/env` and make `.env` file for your project
+
+### `.env`
+
+You can inject your custom environment variables in your project.
+
+The `.env` file should be located in `/config/env` directory.
+
+The project will inject `{ __NOT_USED__: undefined }` environment variable object as a default. You don't necessarily have to use `.env` file.
 
 ## How to build
 
@@ -50,6 +65,12 @@
 2. Visit Storybook UI (Automatically opens)
 
 ## Update Report
+
+### v1.8 (2020-01-01)
+- added custom Environment Variables settings
+  - added warning message if `.env` is not provided or empty when webpack builds
+- separated Webpack config files in `/config` directory
+- updated module (html-webpack-plugin)
 
 ### v1.7 (2019-12-27)
 - added Sass support
