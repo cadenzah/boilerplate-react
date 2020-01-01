@@ -9,12 +9,16 @@ module.exports = (env) => {
   // load environment variables to use
   const envKeys = require('./env')(env)
 
+  // file paths
+  const configPath = path.join(__dirname)
+  const buildPath = `${configPath}/../build`
+
   const config = {
     entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
     output: {
       publicPath: '/',
       filename: 'js/[name].[chunkhash].js',
-      path: path.resolve(`${__dirname}/build`)
+      path: buildPath
     },
     mode: env && env.MODE === 'production' ? 'production' : 'development',
     optimization: {
