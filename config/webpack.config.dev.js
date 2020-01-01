@@ -17,23 +17,11 @@ module.exports = (env) => {
     entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
     output: {
       publicPath: '/',
-      filename: 'js/[name].[chunkhash].js',
+      filename: 'js/[name].js',
       path: buildPath
     },
-    mode: 'production',
-    optimization: {
-      runtimeChunk: 'single',
-  
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all'
-          }
-        }
-      }
-    },
+    mode: 'development',
+    devtool: 'inline-source-map',
     module: {
       rules: [
         {
@@ -51,7 +39,8 @@ module.exports = (env) => {
       contentBase: path.join(__dirname, 'build'),
       compress: true,
       port: 3000,
-      historyApiFallback: true
+      historyApiFallback: true,
+      hot: true,
     },
     plugins: [
       new CleanWebpackPlugin(),
@@ -65,6 +54,7 @@ module.exports = (env) => {
       new ManifestPlugin({
         fileName: 'manifest.json'
       }),
+      new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin([
       //   {
       //     from: 'public/icons',

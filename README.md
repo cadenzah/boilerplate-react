@@ -80,6 +80,12 @@ REPO_NAME=<YOUR_GITHUB_REPOSITORY_NAME>
 
 ## Update Report
 
+### v1.10 (2020-01-02)
+- added Webpack config files
+  - `webpack.config.dev.js` for development only
+  - added HMR and Sourcemap options
+- modified npm scripts along with new Webpack config files
+
 ### v1.9 (2020-01-02)
 - added Github Page deployment script and settings
   - Currently for only a single routing page
@@ -173,3 +179,13 @@ storiesOf('MainButton', module)
     )
   )
 ```
+
+### Deployment on Github Pages
+
+If you have a repository on Github and want to deploy your static web page via Github Page, the site will have a URL like below:
+
+```
+https://<USERNAME>.github.io/<REPO_NAME>
+```
+
+When your `index.html` (쓰다 말았다!)
