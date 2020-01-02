@@ -81,7 +81,8 @@ REPO_NAME=<YOUR_GITHUB_REPOSITORY_NAME>
 ## Update Report
 
 ### v1.4.3 (2020-01-02)
-- added support for multi routing for Github Page Deployment
+- added support for multi-routing for Github Page Deployment
+- added html templates for Github Page Deployment
 
 ### v1.4.2 (2020-01-02)
 - added Webpack config files
