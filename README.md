@@ -13,7 +13,7 @@
   - Set it in `webpack.config.js`
 - Webpack Dev Server
 - Storybook for React
-- Github Page Deployment *(Only for a single routing page currently)*
+- Github Page Deployment
 - Other optimizations for build
 
 ## Index
@@ -80,37 +80,40 @@ REPO_NAME=<YOUR_GITHUB_REPOSITORY_NAME>
 
 ## Update Report
 
-### v1.10 (2020-01-02)
+### v1.4.3 (2020-01-02)
+- added support for multi routing for Github Page Deployment
+
+### v1.4.2 (2020-01-02)
 - added Webpack config files
   - `webpack.config.dev.js` for development only
   - added HMR and Sourcemap options
 - modified npm scripts along with new Webpack config files
 
-### v1.9 (2020-01-02)
+### v1.4.1 (2020-01-02)
 - added Github Page deployment script and settings
   - Currently for only a single routing page
 
-### v1.8 (2020-01-01)
+### v1.4 (2020-01-01)
 - added custom Environment Variables settings
   - added warning message if `.env` is not provided or empty when webpack builds
 - separated Webpack config files in `/config` directory
 - updated module (html-webpack-plugin)
 
-### v1.7 (2019-12-27)
+### v1.3 (2019-12-27)
 - added Sass support
   - added `webpack.config.js` for Storybook config 
 - changed `.css` to `.scss`
 
-### v1.6 (2019-12-11)
+### v1.2.3 (2019-12-11)
 - added build option for production build
 
-### v1.5 (2019-11-22)
+### v1.2.2 (2019-11-22)
 - added `url-loader` and support for image loading from server's directory
 
-### v1.4 (2019-11-21)
+### v1.2.1 (2019-11-21)
 - added tips for using react-router's `withRouter()` HoC.
 
-### v1.3 (2019-11-15)
+### v1.2 (2019-11-15)
 - added `/templates` directory: general purpose template components
   - example: `<Article />` component
 - bugfix when using `react-router` with `wds`
@@ -118,16 +121,16 @@ REPO_NAME=<YOUR_GITHUB_REPOSITORY_NAME>
 - added **Tips** section:
   - relevant tips
 
-### v1.2 (2019-11-14)
+### v1.1 (2019-11-14)
 - added comments with core logic explanations
 - added `redux-thunk`, loaders for style
 - added **Storybook** features
 
-### v1.1 (2019-11-11)
+### v1.0.1 (2019-11-11)
 - added `redux` basic sample codes
 - changed directory structures
 
-### v1.0 (2019-11-9)
+### v1.0.0 (2019-11-9)
 Initial boilerplate checkout
 
 ## Appendix
@@ -188,4 +191,4 @@ If you have a repository on Github and want to deploy your static web page via G
 https://<USERNAME>.github.io/<REPO_NAME>
 ```
 
-When your `index.html` (쓰다 말았다!)
+When your `index.html` (쓰다 말았다!) (https://github.com/rafrex/spa-github-pages)

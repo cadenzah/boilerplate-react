@@ -16,11 +16,10 @@ module.exports = (env) => {
   const config = {
     entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
     output: {
-      publicPath: './',
       filename: 'js/[name].[chunkhash].js',
       path: buildPath,
     },
-    mode: env && env.MODE === 'production' ? 'production' : 'development',
+    mode: 'production',
     optimization: {
       runtimeChunk: 'single',
       splitChunks: {
@@ -48,6 +47,16 @@ module.exports = (env) => {
     },
     plugins: [
       new CleanWebpackPlugin(),
+      new HTMLWebpackPlugin({
+        inject: true,
+        filename: 'index.html',
+        template: './public/gh-pages/index.ejs',
+        basename: envKeys.raw.REPO_URL[envKeys.raw.REPO_URL.length - 1] === '/' ? envKeys.raw.REPO_URL : `${envKeys.raw.REPO_URL}/`,
+        minify: {
+          collapseWhitespace: true
+        },
+        hash: true
+      }),
       new HTMLWebpackPlugin({
         template: './public/index.html',
         minify: {

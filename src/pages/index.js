@@ -3,3 +3,4 @@ import withSplitting from '../utils/withSplitting'
 
 export const Home = withSplitting(() => import('./Home'))
 export const About = withSplitting(() => import('./About'))
+export const PageNotFound = withSplitting(() => import('./common/PageNotFound'))
