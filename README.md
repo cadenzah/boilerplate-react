@@ -10,7 +10,6 @@
 - Code Splitting
   - Create a Component, `import` it in `/pages/index.js` using `withSplitting()`
 - Environment Variables
-  - Set it in `webpack.config.js`
 - Webpack Dev Server
 - Storybook for React
 - Github Page Deployment
@@ -26,12 +25,16 @@
 - `/components` for presentational unit components
   - `/base` for large components
   - `/common` for minimal component unit
+    - `Component.js`
+    - `Component.css`
+    - `Component.stories.js`
+    - `Component.test.js`
     - `index.js`
-    - `component.css`
-    - `component.test.js`
 - `/containers` for container components
 - `/pages` for page per each routings
+  - `/common` for functional pages
   - All routings indexed in `App.js`
+  - Code Splitting enabled
 - `/utils` for utility functions
 - `/redux` for redux store and reducers settings in Ducks pattern
 - `/config` for environment variables setting and Webpack config files
@@ -67,11 +70,12 @@ The project will inject `{ __NOT_USED__: undefined }` environment variable objec
 
 ## How to deploy via Github Page
 
-1. Add `REPO_NAME` value in `.env`
+1. Add following values in `.env` file (`/config/env/.env`):
 
 ```
 # .env
-REPO_NAME=<YOUR_GITHUB_REPOSITORY_NAME>
+REPO_NAME=<GITHUB_REPOSITORY_NAME>
+REPO_URL=https://<GITHUB_ID>.github.io/<GITHUB_REPOSITORY_NAME>
 ```
 
 2. Run `npm run gh-pages`
@@ -83,6 +87,7 @@ REPO_NAME=<YOUR_GITHUB_REPOSITORY_NAME>
 ### v1.4.3 (2020-01-02)
 - added support for multi-routing for Github Page Deployment
 - added html templates for Github Page Deployment
+- fixed typo and added modification in README.md
 
 ### v1.4.2 (2020-01-02)
 - added Webpack config files

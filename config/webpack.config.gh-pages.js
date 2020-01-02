@@ -58,7 +58,9 @@ module.exports = (env) => {
         hash: true
       }),
       new HTMLWebpackPlugin({
-        template: './public/index.html',
+        inject: false,
+        filename: '404.html',
+        template: './public/gh-pages/404.html',
         minify: {
           collapseWhitespace: true
         },
