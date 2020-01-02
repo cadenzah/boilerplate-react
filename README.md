@@ -81,6 +81,7 @@ REPO_URL=https://<GITHUB_ID>.github.io/<GITHUB_REPOSITORY_NAME>
 2. Run `npm run gh-pages`
 3. Include the output `/docs` in the `master` branch of your project
 4. `git push origin master`
+5. Go to your repository page, navigate into [Settings → GitHub Pages → Source], and choose **`master branch /docs folder`**.
 
 ## Update Report
 

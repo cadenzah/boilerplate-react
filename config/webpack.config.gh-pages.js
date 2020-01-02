@@ -53,7 +53,9 @@ module.exports = (env) => {
         template: './public/gh-pages/index.ejs',
         basename: envKeys.raw.REPO_URL[envKeys.raw.REPO_URL.length - 1] === '/' ? envKeys.raw.REPO_URL : `${envKeys.raw.REPO_URL}/`,
         minify: {
-          collapseWhitespace: true
+          collapseWhitespace: true,
+          removeComments: true,
+          minifyJS: true,
         },
         hash: true
       }),
@@ -62,7 +64,9 @@ module.exports = (env) => {
         filename: '404.html',
         template: './public/gh-pages/404.html',
         minify: {
-          collapseWhitespace: true
+          collapseWhitespace: true,
+          removeComments: true,
+          minifyJS: true,
         },
         hash: true
       }),
