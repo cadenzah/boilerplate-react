@@ -85,6 +85,10 @@ REPO_URL=https://<GITHUB_ID>.github.io/<GITHUB_REPOSITORY_NAME>
 
 ## Update Report
 
+### v1.4.4 (2020-01-10)
+- `webpack.config.js`
+  - used `path` module consistently to support non-POSIX path
+
 ### v1.4.3 (2020-01-02)
 - added support for multi-routing for Github Page Deployment
 - added html templates for Github Page Deployment
