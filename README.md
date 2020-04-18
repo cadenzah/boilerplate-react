@@ -1,5 +1,14 @@
 # React Project Bolierplate
 
+## Index
+- [Features](#features)
+- [Directory Structure](#directory-structure)
+- [Preparation](#preparation)
+- [How to use](#how-to-use)
+- [Update Log](#update-log)
+- [Appendix](#appendix)
+
+<a name="features"></a>
 ## Features
 - Image Loading
 - Redux
@@ -14,6 +23,7 @@
 - Github Page Deployment
 - Other optimizations for build
 
+<a name="directory-structure"></a>
 ## Directory Structure
 
 ### `public`
@@ -39,7 +49,8 @@
 - `/config` for environment variables setting and Webpack config files
   - put your `.env` file in `/config/env` directory
 
-## Prerequisite
+<a name="preparation"></a>
+## Preparation
 1. Run `npm install` to provide required npm modules
 2. Go to `/config/env` and make `.env` file for your project
 
@@ -50,19 +61,22 @@ The `.env` file should be located in `/config/env` directory.
 
 The project will inject `{ __NOT_USED__: undefined }` environment variable object as a default. You don't necessarily have to use `.env` file.
 
-## How to build
+<a name="how-to-use"></a>
+## How to use
+
+### How to build
 1. Run `npm run build`
 2. Use a build output from `/build` directory
 
-## How to run `webpack-dev-server`
+### How to run `webpack-dev-server`
 1. Run `npm run dev`
 2. Visit `http://localhost:3000` (Automatically opens)
 
-## How to run **Storybook**
+### How to run **Storybook**
 1. Run `npm run storybook`
 2. Visit Storybook UI (Automatically opens)
 
-## How to deploy via Github Page
+### How to deploy via Github Page
 1. Add following values in `.env` file (`/config/env/.env`):
 
 ```
@@ -76,7 +90,8 @@ REPO_URL=https://<GITHUB_ID>.github.io/<GITHUB_REPOSITORY_NAME>
 4. `git push origin master`
 5. Go to your repository page, navigate into [Settings → GitHub Pages → Source], and choose **`master branch /docs folder`**.
 
-## Update Report
+<a name="update-log"></a>
+## Update Log
 
 ### v1.4.5 (2020-04-16)
 - added explanation for 'Hosting on Github Pages'
@@ -141,14 +156,16 @@ REPO_URL=https://<GITHUB_ID>.github.io/<GITHUB_REPOSITORY_NAME>
 ### v1.0.0 (2019-11-9)
 Initial boilerplate checkout
 
+<a name="appendix"></a>
 ## Appendix
 
 ### Table of Content
-- If you want to use images in pages
-- Tips for using React Router
-- Embedding Environment Variables
-- Hosting on Github Pages
+- [If you want to use images in pages](#appendix-images)
+- [Tips for using React Router](#appendix-react-router)
+- [Embedding Environment Variables](#appendix-env)
+- [Hosting on Github Pages](#appendix-gh-pages)
 
+<a name="appendix-images"></a>
 ### If you want to use images in pages
 
 You can simply load static images which are uploaded in web server's directory by using specific URI indicating the resources.
@@ -159,6 +176,7 @@ You can simply load static images which are uploaded in web server's directory b
 
 Files have to be located in `public/assets` directory, and the URI should include prefix of `assets/`. Subdirectories are able to customized. See `webpack.config.js` for more detailed configurations.
 
+<a name="appendix-react-router"></a>
 ### Tips for using React Router
 
 #### Webpack Dev Server
@@ -197,10 +215,12 @@ storiesOf('MainButton', module)
   )
 ```
 
+<a name="appendix-env"></a>
 ### Embedding Environment Variables
 
 (To be added)
 
+<a name="appendix-gh-pages"></a>
 ### Hosting on Github Pages
 When it comes to hosting React application with [React Router](https://reacttraining.com/react-router/) on Github Page, 2 issues have to be handled:
 
