@@ -81,8 +81,10 @@ The project will inject `{ __NOT_USED__: undefined }` environment variable objec
 
 ```
 # .env
+# replace contents inside the angle brackets with your own
 REPO_NAME=<GITHUB_REPOSITORY_NAME>
 REPO_URL=https://<GITHUB_ID>.github.io/<GITHUB_REPOSITORY_NAME>
+MODE=gh-pages
 ```
 
 2. Run `npm run gh-pages`
