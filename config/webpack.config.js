@@ -23,7 +23,6 @@ module.exports = (env) => {
     mode: 'production',
     optimization: {
       runtimeChunk: 'single',
-  
       splitChunks: {
         cacheGroups: {
           vendor: {
