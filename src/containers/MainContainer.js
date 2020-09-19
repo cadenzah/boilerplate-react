@@ -13,6 +13,8 @@ const MainContainer = (props) => {
     <Article>
       <h3>Hi, there!</h3>
       <p></p>
+      <img src="assets/images/test.jpg" />
+      <br />
       <SimpleCounter
         increment={() => props.appActions.increment(1)}
         decrement={() => props.appActions.decrement(1)}
