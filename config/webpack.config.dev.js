@@ -56,6 +56,11 @@ module.exports = (env) => {
       }),
       new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin({
+        // Inject static assets into public directory
+        // To access them in your component,
+          // put them in `public/` directory in whichever form - directories, files
+          // and use them with the url which has prefix `assets/`.
+        // See the example usage
         patterns: [
           {
             from: 'public/assets',
@@ -63,20 +68,10 @@ module.exports = (env) => {
             toType: 'dir',
           },
         ],
-      //   {
-      //     from: 'public/icons',
-      //     to: './',
-      //     toType: 'dir'
-      //   },
-        // {
-        //   from: 'public/assets',
-        //   to: './assets',
-        //   toType: 'dir'
-        // }
       }),
       new webpack.DefinePlugin(envKeys.stringified),
-    ]
-  }
+    ],
+  };
 
   return config
 }
