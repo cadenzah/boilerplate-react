@@ -55,19 +55,26 @@ module.exports = (env) => {
         fileName: 'manifest.json'
       }),
       new webpack.HotModuleReplacementPlugin(),
-      new CopyWebpackPlugin([
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'public/assets',
+            to: './assets',
+            toType: 'dir',
+          },
+        ],
       //   {
       //     from: 'public/icons',
       //     to: './',
       //     toType: 'dir'
       //   },
-        {
-          from: 'public/assets',
-          to: './assets',
-          toType: 'dir'
-        }
-      ]),
-      new webpack.DefinePlugin(envKeys.stringified)
+        // {
+        //   from: 'public/assets',
+        //   to: './assets',
+        //   toType: 'dir'
+        // }
+      }),
+      new webpack.DefinePlugin(envKeys.stringified),
     ]
   }
 

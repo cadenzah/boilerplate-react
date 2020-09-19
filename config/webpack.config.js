@@ -60,19 +60,26 @@ module.exports = (env) => {
       new ManifestPlugin({
         fileName: 'manifest.json'
       }),
-      new CopyWebpackPlugin([
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'public/assets',
+            to: './',
+            toType: 'dir',
+          },
+        ],
       //   {
       //     from: 'public/icons',
       //     to: './',
       //     toType: 'dir'
       //   },
-        {
-          from: 'public/assets',
-          to: './assets',
-          toType: 'dir'
-        }
-      ]),
-      new webpack.DefinePlugin(envKeys.stringified)
+        // {
+        //   from: 'public/assets',
+        //   to: './assets',
+        //   toType: 'dir'
+        // }
+      }),
+      new webpack.DefinePlugin(envKeys.stringified),
     ]
   }
 
