@@ -1,20 +1,22 @@
-const path = require('path')
-const webpack = require('webpack')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+// const ManifestPlugin = require('webpack-manifest-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env) => {
   // load environment variables to use
-  const envKeys = require('./env')(env)
+  const envKeys = require('./env')(env);
 
   // file paths
-  const configPath = path.join(__dirname)
-  const buildPath = path.join(configPath, '..', 'build')
+  const configPath = path.join(__dirname); // path for webpack.config.js
+  const rootPath = path.join(configPath, '..');
+  const buildPath = path.join(rootPath, 'build');
+  const srcPath = path.join(rootPath, 'src');
 
   const config = {
-    entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
+    entry: ["core-js/stable", "regenerator-runtime/runtime", `${srcPath}/index.js`],
     output: {
       publicPath: '/',
       filename: 'js/[name].js',
@@ -51,9 +53,9 @@ module.exports = (env) => {
         },
         hash: true
       }),
-      new ManifestPlugin({
-        fileName: 'manifest.json'
-      }),
+    //   new ManifestPlugin({
+    //     fileName: 'manifest.json'
+    //   }),
       new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin({
         // Inject static assets into public directory
@@ -70,6 +72,9 @@ module.exports = (env) => {
         ],
       }),
       new webpack.DefinePlugin(envKeys.stringified),
+      new webpack.ProvidePlugin({
+          process: 'process/browser',
+      }),
     ],
   };
 
