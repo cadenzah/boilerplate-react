@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
-import Article from '../components/common/templates/Article'
+import Article from '@/components/common/templates/Article'
 
 const AboutContainer = (props) => {
   return (

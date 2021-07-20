@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
-import SimpleCounter from '../components/SimpleCounter'
-import Article from '../components/common/templates/Article'
+import SimpleCounter from '@/components/SimpleCounter'
+import Article from '@/components/common/templates/Article'
 
-import * as appActions from '../redux/modules/app'
+import * as appActions from '@/redux/modules/app'
 
 const MainContainer = (props) => {
   return (

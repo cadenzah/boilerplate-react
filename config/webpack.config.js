@@ -26,6 +26,12 @@ module.exports = (env) => {
             filename: 'js/[name].[chunkhash].js',
             path: buildPath,
         },
+        resolve: {
+            extensions: [".js", ".jsx"],
+            alias: {
+                '@': srcPath,
+            },
+        },
         mode: isDev ? 'development' : 'production',
         module: {
             rules: [

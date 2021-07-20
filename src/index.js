@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import './index.scss';
+import '@/index.scss';
 
-import store from './redux';
-import App from './pages/App';
+import store from '@/redux';
+import App from '@/pages/App';
 
 ReactDOM.render(
     <BrowserRouter basename={process.env.MODE === 'gh-pages' ? `/${process.env.REPO_NAME}` : ''}>
