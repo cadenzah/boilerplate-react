@@ -1,19 +1,19 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import { Home, About, PageNotFound } from '../pages'
+import { Home, About, PageNotFound } from '../pages';
 
 // catalog for all routings
 const App = (props) => {
-  return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route component={PageNotFound} />
-      </Switch>
-    </div>
-  )
-}
+    return (
+        <div>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/about" component={About} />
+                <Route component={PageNotFound} />
+            </Switch>
+        </div>
+    );
+};
 
-export default App
+export default App;

@@ -1,12 +1,12 @@
-import React from 'react'
-import AboutContainer from '../containers/AboutContainer'
+import React from 'react';
+import AboutContainer from '../containers/AboutContainer';
 
 const About = (props) => {
-  return (
-    <>
-      <AboutContainer />
-    </>
-  )
-}
+    return (
+        <>
+            <AboutContainer />
+        </>
+    );
+};
 
-export default About
+export default About;
