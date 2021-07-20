@@ -1,38 +1,32 @@
-const path = require('path')
-const webpack = require('webpack')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (env) => {
+    const { MODE } = process.env;
+    const isDev = MODE === 'development';
+
   // load environment variables to use
-  const envKeys = require('./env')(env)
+  const envKeys = require('./env')(env);
 
   // file paths
-  const configPath = path.join(__dirname)
-  const buildPath = path.join(configPath, '..', 'build')
+  const configPath = path.join(__dirname); // path for webpack.config.js
+  const rootPath = path.join(configPath, '..');
+  const buildPath = path.join(rootPath, 'build');
+  const srcPath = path.join(rootPath, 'src');
 
-  const config = {
-    entry: ["core-js/stable", "regenerator-runtime/runtime", "./src/index.js"],
+  // Base Configuration Option
+  let config = {
+    entry: ["core-js/stable", "regenerator-runtime/runtime", `${srcPath}/index.js`],
     output: {
       publicPath: '/',
       filename: 'js/[name].[chunkhash].js',
       path: buildPath
     },
-    mode: 'production',
-    optimization: {
-      runtimeChunk: 'single',
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all'
-          }
-        }
-      }
-    },
+    mode: isDev ? 'development' : 'production',
     module: {
       rules: [
         {
@@ -50,14 +44,14 @@ module.exports = (env) => {
       new CleanWebpackPlugin(),
       new HTMLWebpackPlugin({
         template: './public/index.html',
-        minify: {
+        minify: isDev && {
           collapseWhitespace: true,
           removeComments: true,
           minifyJS: true,
         },
-        hash: true
+        hash: isDev,
       }),
-      new ManifestPlugin({
+      new WebpackManifestPlugin({
         fileName: 'manifest.json'
       }),
       new CopyWebpackPlugin({
@@ -75,9 +69,48 @@ module.exports = (env) => {
         ],
       }),
       new webpack.DefinePlugin(envKeys.stringified),
+      new webpack.ProvidePlugin({
+        process: 'process/browser',
+    }),
     ],
   };
 
+  if (MODE === 'development') {
+      // for DEVELOPMENT BUILD
+      config = {
+          devtool: 'inline-source-map',
+          devServer: {
+            contentBase: buildPath,
+            compress: true,
+            port: 3000,
+            historyApiFallback: true,
+            hot: true,
+          },
+          plugins: config.plugins.concat([
+            new webpack.HotModuleReplacementPlugin(),
+          ]),
+          ...config,
+      };
+  } else {
+      // for PRODUCTION BUILD
+      config = {
+        optimization: {
+            runtimeChunk: 'single',
+            splitChunks: {
+                cacheGroups: {
+                    vendor: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: 'vendors',
+                        chunks: 'all'
+                    }
+                }
+            }
+        },
+        ...config,
+      }
+  }
+
+  console.log(config)
+
   return config
 }
-  
