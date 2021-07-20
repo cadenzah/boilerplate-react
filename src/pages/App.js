@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { Home, About, PageNotFound } from '../pages';
+import { Home, About, PageNotFound } from '@/pages';
 
 // catalog for all routings
 const App = (props) => {
