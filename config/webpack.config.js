@@ -86,7 +86,9 @@ module.exports = (env) => {
         config = {
             devtool: 'inline-source-map',
             devServer: {
-                contentBase: buildPath,
+                static: {
+                    directory: buildPath,
+                },
                 compress: true,
                 port: 3000,
                 historyApiFallback: true,
