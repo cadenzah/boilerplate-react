@@ -1,5 +1,5 @@
 import React from 'react';
-import MainContainer from '@/views/MainContainer';
+import MainContainer from '@/containers/MainContainer';
 
 const Home = (props) => {
     return (

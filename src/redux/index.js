@@ -1,9 +1,14 @@
 // export the function's result
 // can be editted when ssr is used
-import { createStore, applyMiddleware } from 'redux'
-import rootReducer from './modules'
-import reduxThunk from 'redux-thunk'
+import { configureStore as _configureStore } from '@reduxjs/toolkit';
 
-const store = createStore(rootReducer, applyMiddleware(reduxThunk))
+import rootReducer from './modules';
 
-export default store
+export default function configureStore(preloadedState) {
+    const store = _configureStore({
+        reducer: rootReducer,
+        // middleware: (getDefaultMiddleware) => {},
+        preloadedState,
+    });
+    return store;
+};

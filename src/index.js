@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-import '@/styles/_reset.scss';
+import configureStore from '@/redux';
+const store = configureStore();
 
-import store from '@/redux';
+import '@/styles/_reset.scss';
 import App from '@/pages/App';
 
 ReactDOM.render(
