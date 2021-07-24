@@ -10,13 +10,14 @@
 
 <a name="features"></a>
 ## Features
-- Image Loading
+- React Hooks based
 - Redux
-  - `redux-thunk`
+    - `redux-thunk`
 - React Router
 - Sass supported
+- Image Loading
 - Code Splitting
-  - Create a Component, `import` it in `/pages/index.js` using `withSplitting()`
+    - Create a Component, `import` it in `/pages/index.js` using `withSplitting()`
 - Environment Variables
 - Webpack Dev Server
 - Storybook for React
@@ -32,27 +33,28 @@
 
 ### `src`
 - `/components` for presentational unit components
-  - `/base` for large components
-  - `/common` for minimal component unit
-    - `Component.js`
-    - `Component.css`
-    - `Component.stories.js`
-    - `Component.test.js`
-    - `index.js`
+    - `/base` for large components
+    - `/common` for minimal component unit
+        - `Component.js`
+        - `Component.css`
+        - `Component.stories.js`
+        - `Component.test.js`
+        - `index.js`
 - `/containers` for container components
 - `/pages` for page per each routings
-  - `/common` for functional pages
-  - All routings indexed in `App.js`
-  - Code Splitting enabled
+    - `/common` for functional pages
+    - All routings indexed in `App.js`
+    - Code Splitting enabled
 - `/utils` for utility functions
-- `/redux` for redux store and reducers settings in Ducks pattern
+- `/redux` for redux store and reducers settings
+    - Provided in Ducks pattern using Redux Toolkit
 - `/config` for environment variables setting and Webpack config files
-  - put your `.env` file in `/config/env` directory
+    - Put your `.env` file in `/config/env` directory
 
 <a name="preparation"></a>
 ## Preparation
 1. Run `npm install` to provide required npm modules
-2. Go to `/config/env` and make `.env` file for your project
+2. (Optional) Go to `/config/env` and make `.env` file for your project
 
 ### `.env`
 You can inject your custom environment variables in your project.
@@ -84,16 +86,29 @@ The project will inject `{ __NOT_USED__: undefined }` environment variable objec
 # replace contents inside the angle brackets with your own
 REPO_NAME=<GITHUB_REPOSITORY_NAME>
 REPO_URL=https://<GITHUB_ID>.github.io/<GITHUB_REPOSITORY_NAME>
-MODE=gh-pages
 ```
 
-2. Run `npm run gh-pages`
+2. Run `npm run build:github`
 3. Include the output `/docs` in the `master` branch of your project
 4. `git push origin master`
 5. Go to your repository page, navigate into [Settings → GitHub Pages → Source], and choose **`master branch /docs folder`**.
 
+The resulting page will look like [this](https://cadenzah.github.io/boilerplate-react/).
+
 <a name="update-log"></a>
 ## Update Log
+
+### v2.0 (2021-7-25)
+- Package version updates
+    - Migrated to React Hooks
+    - Migrated to Redux Toolkit
+    - Fixed Storybook configurations
+- Enabled React Hot Loader
+- Changed code convention (indentation, semicolon)
+- Changed directory structure
+- Changed NPM scripts
+- Changed usage for Github Page Deployment
+- Temporarily disabled Storybook (waiting for [this issue](https://github.com/storybookjs/storybook/issues/14119) being fixed)
 
 ### v1.4.5 (2020-04-16)
 - added explanation for 'Hosting on Github Pages'
