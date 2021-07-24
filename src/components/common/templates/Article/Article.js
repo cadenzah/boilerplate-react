@@ -1,12 +1,12 @@
-import React from 'react'
-import './Article.scss'
+import React from 'react';
+import './Article.scss';
 
 const Article = (props) => {
-  return (
-    <div className="template-article">
-      {props.children}
-    </div>
-  )
-}
+    return (
+        <div className="template-article">
+            {props.children}
+        </div>
+    );
+};
 
-export default Article
+export default Article;
