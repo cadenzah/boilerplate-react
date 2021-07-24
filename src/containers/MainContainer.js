@@ -30,7 +30,11 @@ const MainContainer = (props) => {
         <Article>
             <h3>Hi, there!!!</h3>
             <br />
-            <img src="assets/images/test.jpg" />
+            <img
+                src="assets/images/pengsu-sleep.jpg"
+                width="350px"
+                height="350px"
+            />
             <br />
             <SimpleCounter
                 increment={increment(1)}
