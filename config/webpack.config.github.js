@@ -17,8 +17,8 @@ module.exports = (env) => {
 
     const config = {
         entry: [
-            "core-js/stable",
-            "regenerator-runtime/runtime",
+            'core-js/stable',
+            'regenerator-runtime/runtime',
             `${srcPath}/index.js`
         ],
         output: {
@@ -26,7 +26,7 @@ module.exports = (env) => {
             path: buildPath,
         },
         resolve: {
-            extensions: [".js", ".jsx"],
+            extensions: ['.js', '.jsx'],
             alias: {
                 '@': srcPath,
             },

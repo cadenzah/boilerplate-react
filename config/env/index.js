@@ -2,10 +2,30 @@ const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
 
+// List of npm script environment variable
+// property value is a default value for that variable
+const NPM_SCRIPT_ENV = {
+    MODE: 'development',
+};
+
+function addNPMVars(envFile, processEnv) {
+    const addedEnv = Object.assign({}, envFile);
+    for (let key in NPM_SCRIPT_ENV) {
+        // If same name of variable exists in .env file,
+        // the variable from NPM will be ignored
+        if (addedEnv[key] !== undefined) {
+            return;
+        }
+
+        addedEnv[key] = processEnv[key] || NPM_SCRIPT_ENV[key];
+    }
+    return addedEnv;
+}
+
 // Util function that processes and generates environment variables
 // The returned object will be used in `webpack.DefinePlugin`
-module.exports = (env = { MODE: 'development' }) => {
-  // Get the root path (based on where `/config/env/index.js` is located)
+module.exports = (env) => {
+    // Get the root path (based on where `/config/env/index.js` is located)
     const currentPath = path.join(__dirname);
 
     // Create the fallback path
@@ -21,7 +41,9 @@ module.exports = (env = { MODE: 'development' }) => {
     const finalPath = fs.existsSync(envPath) ? envPath : basePath;
 
     // Set the path parameter in the dotenv config
-    const envFile = dotenv.config({ path: finalPath }).parsed;
+    // also, add from npm script environment variable
+    let envFile = dotenv.config({ path: finalPath }).parsed;
+    envFile = addNPMVars(envFile, process.env);
 
     if (envFile === undefined || envFile === null) {
     // .env is not defined; prompt warning message
