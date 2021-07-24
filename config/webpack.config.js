@@ -20,7 +20,11 @@ module.exports = (env) => {
 
     // Base Configuration Option
     let config = {
-        entry: ["core-js/stable", "regenerator-runtime/runtime", `${srcPath}/index.js`],
+        entry: [
+            "core-js/stable",
+            "regenerator-runtime/runtime",
+            `${srcPath}/index.js`
+        ],
         output: {
             publicPath: '/',
             filename: 'js/[name].[chunkhash].js',
