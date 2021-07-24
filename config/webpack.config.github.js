@@ -17,17 +17,16 @@ module.exports = (env) => {
 
     const config = {
         entry: [
-            'core-js/stable',
-            'regenerator-runtime/runtime',
+            "core-js/stable",
+            "regenerator-runtime/runtime",
             `${srcPath}/index.js`
         ],
         output: {
-            publicPath: './',
             filename: 'js/[name].[chunkhash].js',
             path: buildPath,
         },
         resolve: {
-            extensions: ['.js', '.jsx'],
+            extensions: [".js", ".jsx"],
             alias: {
                 '@': srcPath,
             },
@@ -53,7 +52,7 @@ module.exports = (env) => {
                 },
                 {
                     test: /\.(js|jsx)$/,
-                    exclude: '/node_modules',
+                    exclude: "/node_modules",
                     use: ['babel-loader'],
                 },
             ],
