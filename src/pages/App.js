@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 
 import { Home, About, PageNotFound } from '@/pages';
 
@@ -16,4 +17,4 @@ const App = (props) => {
     );
 };
 
-export default App;
+export default hot(module)(App);

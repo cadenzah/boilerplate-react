@@ -27,20 +27,20 @@ const MainContainer = (props) => {
     );
 
     return (
-    <Article>
-        <h3>Hi, there!!!</h3>
-        <br />
-        <img src="assets/images/test.jpg" />
-        <br />
-        <SimpleCounter
-            increment={increment(1)}
-            decrement={decrement(1)}
-            value={counterValue}
-        />
-        <br />
-        <Link to="/about">Want to know about this page?</Link>
-    </Article>
-    )
+        <Article>
+            <h3>Hi, there!!!</h3>
+            <br />
+            <img src="assets/images/test.jpg" />
+            <br />
+            <SimpleCounter
+                increment={increment(1)}
+                decrement={decrement(1)}
+                value={counterValue}
+            />
+            <br />
+            <Link to="/about">Want to know about this page?</Link>
+        </Article>
+    );
 }
 
 export default MainContainer;
