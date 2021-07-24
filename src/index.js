@@ -10,7 +10,11 @@ import '@/styles/_reset.scss';
 import App from '@/pages/App';
 
 ReactDOM.render(
-    <BrowserRouter basename={process.env.MODE === 'github' ? `/${process.env.REPO_NAME}` : ''}>
+    <BrowserRouter basename={
+        process.env.MODE === 'github'
+            ? `/${process.env.REPO_NAME}`
+            : ''}
+    >
         <Provider store={store}>
             <App />
         </Provider>
