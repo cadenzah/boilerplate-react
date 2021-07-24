@@ -22,7 +22,6 @@ module.exports = (env) => {
             `${srcPath}/index.js`
         ],
         output: {
-            publicPath: './',
             filename: 'js/[name].[chunkhash].js',
             path: buildPath,
         },

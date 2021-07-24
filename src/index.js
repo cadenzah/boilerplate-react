@@ -13,7 +13,8 @@ ReactDOM.render(
     <BrowserRouter basename={
         process.env.MODE === 'github'
             ? `/${process.env.REPO_NAME}`
-            : ''}
+            : `/${process.env.REPO_NAME}`
+        }
     >
         <Provider store={store}>
             <App />
